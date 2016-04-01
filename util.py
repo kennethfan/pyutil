@@ -12,7 +12,7 @@ import types
 import os
 import json
 import itertools
-import db_util
+import dbutil
 from daemon import Daemon
 from statlogger import StatLogger
 from apscheduler.scheduler import Scheduler
@@ -410,7 +410,7 @@ class Base(object):
             return getattr(self, db_title)
         else:
             db_config = self.config[db_title + 'Db']
-            conn = db_util.database(
+            conn = dbutil.database(
                 dbn='mysql',
                     host=db_config['host'],
                     port=int(db_config['port']),
