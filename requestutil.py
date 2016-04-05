@@ -88,7 +88,7 @@ class RequestUtil:
         return url + separator + '&'.join(kv_list)
 
     @classmethod
-    def url_get_request(cls, url, kw):
+    def url_get_request(cls, url, kw={}):
         '''
             @desc get 请求url
         '''
@@ -105,11 +105,12 @@ class RequestUtil:
             return response, err
 
     @classmethod
-    def url_post_request(cls, url, data, kw):
+    def url_post_request(cls, url, data, kw={}):
         '''
             @desc get 请求url
         '''
         options = cls.create_request_options(**kw)
+        options['data'] = data
         response = False
         err = None
         try:
